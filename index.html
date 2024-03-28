@@ -409,9 +409,9 @@
     </footer>
     <div class="backdrop is-hidden" data-modal>
       <div class="modal">
-        <div class="modal-header">
-          <button class="close-button" data-modal-close></button>
-        </div>
+        <button class="close-button" data-modal-close>
+          <span class="icons icons-close"></span>
+        </button>
         <div class="modal-body">
           <div class="modal-heading">
             Leave your contacts and we will call you back
@@ -421,7 +421,7 @@
               Name
               <div class="form-field">
                 <input
-                  class="form-input input-name"
+                  class="form-input"
                   name="name"
                   type="text"
                   autofocus
@@ -450,7 +450,7 @@
                 </svg>
               </div>
             </label>
-            <label class="form-label">
+            <label class="form-label mb2">
               Comment
               <textarea
                 class="form-input"
@@ -459,7 +459,7 @@
                 placeholder="Text input"
               ></textarea>
             </label>
-            <label class="form-label inline-label">
+            <label class="form-label inline-label mb0">
               <div class="form-field-checkbox">
                 <input
                   class="form-checkbox"
