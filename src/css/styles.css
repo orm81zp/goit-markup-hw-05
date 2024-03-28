@@ -13,6 +13,7 @@ img {
 }
 button {
   cursor: pointer;
+  outline: none;
 }
 input, button {
   font-size: inherit;
@@ -74,6 +75,7 @@ main {
 a, .link {
   text-decoration: none;
   color: var(--slate);
+  outline: none;
   transition: color var(--transition-property), border-color var(--transition-property);
 }
 
@@ -92,33 +94,34 @@ a:focus,
 /* Buttons */
 .button {
   font-weight: 500;
-  line-height: 1.5;
+  line-height: 3.375;
   background-color: var(--iris);
   color: var(--white-text);
-  padding: 16px 32px;
+  padding: 0 16px;
   border: 1px solid var(--iris);
   border-radius: 4px;
   min-width: 168px;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.15);
   transition: color var(--transition-property), background-color var(--transition-property), border-color var(--transition-property), box-shadow var(--transition-property);
 }
-
-.button:hover,
-.button:focus {
-  box-shadow: 0 3px 2px rgba(0, 0, 0, 0.12); 
-} 
 
 .button:hover, 
 .button:focus {
   background-color: var(--ocean);
   border: 1px solid var(--ocean);
 }
+.button .icon {
+  flex-shrink: 0;
+  margin-left: 16px;
+}
 
 button.secondary {
-  padding: 12px 24px;
   background-color: var(--cloud);
   border: 1px solid var(--cornflower);
   color: var(--iris);
+  line-height: 2.875;
   min-width: auto;
+  box-shadow: none;
 }
 
 button.secondary:hover,
@@ -126,6 +129,7 @@ button.secondary:focus {
   background-color: var(--ocean);
   border: 1px solid var(--ocean);
   color: var(--white-text);
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.15);
 }
 
 /* headings */
@@ -466,19 +470,21 @@ footer .brandlogo-text, footer .title {
   position: absolute;
   padding: 24px;
   background-color: var(--white-background);
-  max-width: 480px;
-  width: 50%;
-  height: 75vh;
+  width: 408px;
+  min-height: 584px;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   overflow: auto;
+  display: flex;
+  flex-direction: column;
 }
 
-.modal > .modal-header {
+.modal .close-button {
   display: flex;
   justify-content: end;
   margin-bottom: 24px;
+  align-self: flex-end;
 }
 
 .modal .modal-heading {
@@ -489,22 +495,31 @@ footer .brandlogo-text, footer .title {
 
 .modal .close-button {
   border: 0;
+  background-color: transparent;
+}
+
+.modal .close-button .icons {
   width: 24px;
   height: 24px;
-  background-color: transparent;
-  background-image: url(../images/icon-close.svg);
+  display: block;
+  background-repeat: no-repeat;
+  background-size: cover;
   transition: background-image var(--transition-property);
 }
 
-/* preload for hover */
-.modal .close-button::before {
-  display: none;
-  content: url('../images/icon-close-active.svg');
- }
+.modal .close-button .icons-close {
+  background-image: url('../images/close.svg');
+}
 
-.modal .close-button:hover,
-.modal .close-button:focus {
-  background-image: url(../images/icon-close-active.svg);
+/* preload hover image */
+.modal .close-button .icons-close::before {
+  display: none;
+  background-image: url('../images/close-active.svg');
+}
+
+.modal .close-button:hover .icons-close,
+.modal .close-button:focus .icons-close {
+  background-image: url('../images/close-active.svg');
 }
 
 /* form */
@@ -534,27 +549,34 @@ footer .brandlogo-text, footer .title {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 40px;
+  line-height: 2.375;
+  box-shadow: none;
 }
 
 .form.subscribe-form .button .icon {
   fill: var(--white-background);
-  margin-left: 16px;
 }
 
 .form-label {
   display: flex;
   flex-direction: column;
   gap: 4px;
-  margin-bottom: 8px;
   font-size: 12px;
   line-height: 1.16667;
   color: var(--light-slate);
   letter-spacing: 4%;
+  margin-bottom: 8px;
 }
 
-.form-label:not(.inline-label) {
-  margin-bottom: 8px;
+.form-label.mb2 {
+  margin-bottom: 16px;
+}
+.form-label.mb0 {
+  margin-bottom: 0;
+}
+
+.form-label.terms-label {
+  margin-top: 16px;
 }
 
 .form-label.inline-label{
