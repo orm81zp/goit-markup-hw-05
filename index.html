@@ -384,6 +384,27 @@
             </a>
           </div>
         </div>
+        <div class="column">
+          <p class="title">Subscribe</p>
+          <form
+            class="form subscribe-form"
+            name="subscribe_form"
+            autocomplete="off"
+          >
+            <input
+              class="form-input"
+              name="subscribe"
+              type="email"
+              placeholder="E-mail"
+            />
+            <button class="button big" type="submit">
+              Subscribe
+              <svg class="icon" width="24" height="20">
+                <use href="./images/icons.svg#icon-send"></use>
+              </svg>
+            </button>
+          </form>
+        </div>
       </div>
     </footer>
     <div class="backdrop is-hidden" data-modal>
@@ -392,19 +413,69 @@
           <button class="close-button" data-modal-close></button>
         </div>
         <div class="modal-body">
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero
-            expedita assumenda minima quia ea earum rem, autem laborum,
-            perspiciatis quibusdam minus quidem, ab tempore illo natus quisquam
-            pariatur nesciunt aspernatur? Autem, repellendus non explicabo
-            voluptate nisi eaque quo eveniet, nam quisquam culpa quidem laborum!
-            Esse ut ratione ullam natus, recusandae explicabo et, laborum velit
-            laboriosam numquam eos officiis cupiditate hic? Animi fugit minus
-            aut, recusandae aspernatur vero aliquam autem id commodi distinctio
-            sit, sequi explicabo tempore reprehenderit magni architecto
-            exercitationem veniam cum facilis blanditiis aperiam beatae vel.
-            Voluptate, dolore dicta.
-          </p>
+          <div class="modal-heading">
+            Leave your contacts and we will call you back
+          </div>
+          <form class="form" name="feedback_form" autocomplete="off">
+            <label class="form-label">
+              Name
+              <div class="form-field">
+                <input
+                  class="form-input input-name"
+                  name="name"
+                  type="text"
+                  autofocus
+                  required
+                />
+                <svg class="icon" width="12" height="12">
+                  <use href="./images/icons.svg#icon-person"></use>
+                </svg>
+              </div>
+            </label>
+            <label class="form-label">
+              Phone
+              <div class="form-field">
+                <input class="form-input" name="phone" type="tel" />
+                <svg class="icon" width="13" height="13">
+                  <use href="./images/icons.svg#icon-phone"></use>
+                </svg>
+              </div>
+            </label>
+            <label class="form-label">
+              Email
+              <div class="form-field">
+                <input class="form-input" name="email" type="email" required />
+                <svg class="icon" width="15" height="12">
+                  <use href="./images/icons.svg#icon-email"></use>
+                </svg>
+              </div>
+            </label>
+            <label class="form-label">
+              Comment
+              <textarea
+                class="form-input"
+                name="comment"
+                row="6"
+                placeholder="Text input"
+              ></textarea>
+            </label>
+            <label class="form-label inline-label">
+              <div class="form-field-checkbox">
+                <input
+                  class="form-checkbox"
+                  type="checkbox"
+                  name="terms"
+                  value="1"
+                />
+                <span class="checkbox"></span>
+              </div>
+              I accept the terms and conditions of the
+              <a class="link accent" href="#">Privacy Policy</a>
+            </label>
+            <div class="actions">
+              <button class="button big" type="submit">Send</button>
+            </div>
+          </form>
         </div>
       </div>
     </div>

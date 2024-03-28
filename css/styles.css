@@ -14,6 +14,10 @@ img {
 button {
   cursor: pointer;
 }
+input, button {
+  font-size: inherit;
+  font-family: inherit;
+}
 
 /* CSS variables */
 :root {
@@ -67,35 +71,41 @@ main {
 }
 
 /* links */
-a {
+a, .link {
   text-decoration: none;
   color: var(--slate);
   transition: color var(--transition-property), border-color var(--transition-property);
 }
 
+.link.accent {
+  color: var(--iris);
+  text-decoration: underline;
+}
+
 a:hover,
-a:focus {
+a:focus,
+.link:hover,
+.link:focus {
   color: var(--ocean);
 }
 
 /* Buttons */
 .button {
-  font-size: inherit;
-  font-family: inherit;
   font-weight: 500;
   line-height: 1.5;
   background-color: var(--iris);
   color: var(--white-text);
-  padding: 12px 24px;
+  padding: 16px 32px;
   border: 1px solid var(--iris);
   border-radius: 4px;
+  min-width: 168px;
   transition: color var(--transition-property), background-color var(--transition-property), border-color var(--transition-property), box-shadow var(--transition-property);
 }
 
 .button:hover,
 .button:focus {
   box-shadow: 0 3px 2px rgba(0, 0, 0, 0.12); 
-}
+} 
 
 .button:hover, 
 .button:focus {
@@ -104,9 +114,11 @@ a:focus {
 }
 
 button.secondary {
+  padding: 12px 24px;
   background-color: var(--cloud);
   border: 1px solid var(--cornflower);
   color: var(--iris);
+  min-width: auto;
 }
 
 button.secondary:hover,
@@ -238,10 +250,6 @@ header .container {
   color: var(--white-text);
   max-width: 500px;
   margin: 0 auto 48px auto;
-}
-
-.section-hero button {
-  padding: 16px 32px;
 }
 
 .section-team {
@@ -412,7 +420,9 @@ footer {
 footer .container {
   display: flex;
   align-items: start;
-  gap: 120px;
+  justify-content: space-between;
+  gap: 24px;
+
 }
 
 footer .column:nth-child(1) {
@@ -462,12 +472,19 @@ footer .brandlogo-text, footer .title {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  overflow: auto;
 }
 
 .modal > .modal-header {
   display: flex;
   justify-content: end;
   margin-bottom: 24px;
+}
+
+.modal .modal-heading {
+  font-weight: 500;
+  margin-bottom: 16px;
+  text-align: center;
 }
 
 .modal .close-button {
@@ -489,6 +506,138 @@ footer .brandlogo-text, footer .title {
 .modal .close-button:focus {
   background-image: url(../images/icon-close-active.svg);
 }
+
+/* form */
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form.subscribe-form {
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+}
+
+.form.subscribe-form .form-input {
+  background-color: transparent;
+  border-color: var(--white-background);
+  color:  var(--white-text);
+  min-width: 264px;
+}
+
+.form.subscribe-form .form-input::placeholder {
+  color:  var(--white-text);
+}
+
+.form.subscribe-form .button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+}
+
+.form.subscribe-form .button .icon {
+  fill: var(--white-background);
+  margin-left: 16px;
+}
+
+.form-label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 8px;
+  font-size: 12px;
+  line-height: 1.16667;
+  color: var(--light-slate);
+  letter-spacing: 4%;
+}
+
+.form-label:not(.inline-label) {
+  margin-bottom: 8px;
+}
+
+.form-label.inline-label{
+  flex-direction: row;
+  align-items: center; 
+  gap: 8px;
+}
+
+.form-input {
+  font-size: 12px;
+  padding: 8px 8px 8px 16px;
+  border: 1px solid rgba(46, 47, 66, 0.4);
+  transition: border-color var(--transition-property);
+  border-radius: 4px;
+  height: 40px;
+  width: 100%;
+  color: var(--navy-blue);
+  outline: none;
+}
+
+.form-field .form-input {
+  padding: 8px 8px 8px 32px;
+}
+.form-input:hover, 
+.form-input:focus {
+  border-color: var(--iris);
+}
+.form-input:hover + .icon, 
+.form-input:focus + .icon {
+  fill: var(--iris);
+}
+
+.form-field {
+  position: relative;
+}
+
+.form-field .icon{
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  bottom: 50%;
+  transform: translateY(-50%);
+  fill: var(--navy-blue);
+}
+
+textarea.form-input {
+  min-height: 120px;
+  resize: none;
+}
+
+.form-input::placeholder {
+  color: var(--light-slate);
+}
+
+.form-checkbox {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0px;
+  width: 0px;
+}
+
+.form-field-checkbox .checkbox {
+  display: block;
+  width: 16px;
+  height: 16px;
+  background-image: url('../images/checkbox.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+
+.form-checkbox:checked + .checkbox {
+  background-image: url('../images/checkbox-active.svg');
+}
+
+.form .actions {
+  margin-top: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 
 .overlay {
   position: absolute;
